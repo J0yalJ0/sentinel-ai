@@ -8,7 +8,7 @@ export interface PredictionResponse {
   prediction: PredictionData;
 }
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://sentinel-ai-tz7d.onrender.com';
 
 export const fetchPrediction = async (): Promise<PredictionResponse> => {
 
