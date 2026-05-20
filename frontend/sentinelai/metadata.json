@@ -1,0 +1,6 @@
+{
+  "name": "SentinelAI",
+  "description": "Production-grade AI cybersecurity platform with real-time threat detection and advanced SOC analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
