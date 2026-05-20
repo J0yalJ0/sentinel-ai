@@ -1,14 +1,16 @@
 from fastapi import APIRouter
 
+from backend.services.prediction_service import (
+    generate_sample_prediction
+)
+
 router = APIRouter()
 
 @router.get("/predict")
 def predict():
 
+    prediction = generate_sample_prediction()
+
     return {
-        "prediction": {
-            "xgboost_prediction": 0,
-            "xgboost_probability": 0.87,
-            "anomaly_detected": 0
-        }
+        "prediction": prediction
     }
