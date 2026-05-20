@@ -1,34 +1,28 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from backend.api.routes import predict
-from backend.api.routes import health
-
-app = FastAPI(
-    title="SentinelAI",
-    description="AI Cybersecurity Threat Detection Platform",
-    version="1.0.0"
+from backend.api.routes import (
+    health,
+    predict
 )
 
-# =========================
-# ROUTES
-# =========================
+app = FastAPI()
 
-app.include_router(
-    health.router
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
-app.include_router(
-    predict.router
-)
-
-# =========================
-# ROOT ENDPOINT
-# =========================
+# Routes
+app.include_router(health.router)
+app.include_router(predict.router)
 
 @app.get("/")
-
 def root():
-
     return {
         "message": "SentinelAI Backend Running"
     }
